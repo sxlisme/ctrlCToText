@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>读取剪贴板内的二维码</title>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/reqrcode.js"></script>
+</head>
+
+<body>
+	
+	<hr>
+	<p>二维码解析结果</p>
+	<textarea id="text" style="width:800px; height:300px; resize:none"></textarea>
+	
+</body>
+<script>
+var body = document.getElementsByTagName('body')[0];
+body.addEventListener('paste', function(e) {
+    var clipboard = e.clipboardData;
+    var type = clipboard.items[0].type;
+    if (type.match(/image/)) {
+        var blob = clipboard.items[0].getAsFile();
+        var blobStr = getObjectURL(blob);
+        qrcode.decode(blobStr);
+        qrcode.callback = function (imgMsg) {
+            //alert("二维码解析：" + imgMsg);
+            var msg = decodeURIComponent(imgMsg);           
+            $('#text').html(msg);
+        }
+        console.log(blobStr);
+        // var file = new FileReader();
+        // file.addEventListener('loadend', function(e) {
+        //     document.getElementById('result').value = e.target.result;
+        // });
+        // file.readAsDataURL(blob);
+    } else {
+       // document.getElementById('result').value = "not an image\ntype: " + type + "\n\n";
+    }
+});
+
+var getObjectURL = function(file) {
+    var url = null;
+    if (window.createObjectURL != undefined) { // basic
+        url = window.createObjectURL(file);
+    } else if (window.URL != undefined) { // mozilla(firefox)
+        url = window.URL.createObjectURL(file);
+    } else if (window.webkitURL != undefined) { // webkit or chrome
+        url = window.webkitURL.createObjectURL(file);
+    }
+    return url;
+}
+</script>
+
+</html>

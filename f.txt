@@ -3,4 +3,4 @@
 
 creating  a new branch is quick and simple!
 
-开发分支主要用于开发
+bug 已修复

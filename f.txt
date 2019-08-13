@@ -3,4 +3,9 @@
 
 creating  a new branch is quick and simple!
 
+ 
 bug 已修复
+ 
+开发分支主要用于开发
+稍等稍等
+ 

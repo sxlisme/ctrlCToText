@@ -10,10 +10,15 @@
 
 <body>
 	
-	<hr>
+
 	<p>二维码解析结果</p>
-	<textarea id="text" style="width:800px; height:300px; resize:none"></textarea>
-	
+	<textarea id="text" readonly style="width:800px; height:300px; resize:none"></textarea>
+<pre>
+    1.  打开index.html页面
+    2.  使用qq、微信或其他截图软件截取二维码到剪贴板
+    3.  在index.html页面 按下ctrl+v 即可识别二维码,并显示数据到页面
+    4.  无法识别的二位码尝试缩放后截图,如缩放到100像素左右尝试
+</pre>
 </body>
 <script>
 var body = document.getElementsByTagName('body')[0];
@@ -26,7 +31,8 @@ body.addEventListener('paste', function(e) {
         qrcode.decode(blobStr);
         qrcode.callback = function (imgMsg) {
             //alert("二维码解析：" + imgMsg);
-            var msg = decodeURIComponent(imgMsg);           
+            var msg = decodeURIComponent(imgMsg);
+            console.log(`解析结果${msg}`);
             $('#text').html(msg);
         }
         console.log(blobStr);

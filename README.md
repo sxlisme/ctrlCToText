@@ -15,3 +15,5 @@
 2. Use qq, WeChat or other screenshot software to capture the QR code to the clipboard
 3. Press ctrl + v on the index.html page to identify the QR code and display the data to the page.
 4. Unrecognized two-digit code try to zoom the screenshot, such as zooming to around 100 pixels try
+
+v1.0

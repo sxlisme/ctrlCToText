@@ -7,7 +7,7 @@
 
 ------------
 
-#Instructions for use
+# Instructions for use
 
 1. Open the index.html page
 2. Use qq, WeChat or other screenshot software to capture the QR code to the clipboard

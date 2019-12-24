@@ -27,8 +27,7 @@ body.addEventListener('paste', function(e) {
         var blob = clipboard.items[0].getAsFile();
         var blobStr = getObjectURL(blob);
         qrcode.decode(blobStr);
-        qrcode.callback = function (imgMsg) {
-            //alert("二维码解析：" + imgMsg);
+        qrcode.callback = function (imgMsg) {            
             var msg = decodeURIComponent(imgMsg);
             console.log(`解析结果${msg}`);
             $('#text').html(msg);
